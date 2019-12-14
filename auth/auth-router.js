@@ -3,7 +3,6 @@ const Users = require('./user-model.js');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-
 function generateToken(user) {
   console.log(user)
 
@@ -18,10 +17,9 @@ return jwt.sign(payload,'aeaeiouAndSometimesY', options);
 
 }
 
-
 router.post('/register', (req, res) => {
  
-  const { username, password } = req.body;
+  const { username, password } = req.headers;
   Users.insert({ username, password: bcrypt.hashSync(password, 8) })
     .then(id => {
       res.status(201).json({ message: "User registration complete", id });
@@ -34,7 +32,7 @@ router.post('/register', (req, res) => {
 
 router.post('/login', (req, res) => {
  
-  const { username, password } = req.body;
+  const { username, password } = req.headers;
   Users
     .findByUsername(username)
     .then(user => {
