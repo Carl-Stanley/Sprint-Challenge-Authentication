@@ -1,8 +1,8 @@
-const server = require("../api/server.js");
+const server = require("./api/server.js");
 
 const request = require("supertest");
 
-const db = require("../database/dbConfig.js");
+const db = require("./database/dbConfig");
 
 
 
