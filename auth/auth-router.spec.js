@@ -13,7 +13,7 @@ describe("POST /register", () => {
         password: "mephistaclees"
       })
       .then(res => {
-        expect(res.type).toMatch(/json/);
+        expect(res.type).toMatch("/json/");
       });
   });
 
