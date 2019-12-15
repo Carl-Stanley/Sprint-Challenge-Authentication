@@ -44,3 +44,21 @@ describe('POST', ()=> {
     })
 })
 
+describe('POST', ()=> {
+    describe('GET', ()=>{
+        it('return a 404 OK', ()=>{
+            return request(server)
+            .get('/api/auth/register')
+            .then(res => {
+                expect(res.status).toBe(404)
+            })
+        })
+        it('JSON response', ()=>{
+            return request(server)
+            .get('/api/auth/register')
+            .then(res => {
+                expect(res.type).toMatch('text/html')
+            })  
+         })  
+    })
+})
