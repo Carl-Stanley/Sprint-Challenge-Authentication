@@ -8,14 +8,14 @@ const db = require("./database/dbConfig");
 
 describe('server', ()=> {
     describe('GET', ()=>{
-        it('Should return a 400 OK', ()=>{
+        it('return a 400 OK', ()=>{
             return request(server)
             .get('/api/jokes')
             .then(res => {
                 expect(res.status).toBe(400)
             })
         })
-        it('should return JSON response', ()=>{
+        it('JSON response', ()=>{
             return request(server)
             .get('/api/jokes')
             .then(res => {
@@ -27,14 +27,14 @@ describe('server', ()=> {
 
 describe('POST', ()=> {
     describe('GET', ()=>{
-        it('Should return a 404 OK', ()=>{
+        it('return a 404 OK', ()=>{
             return request(server)
             .get('/api/auth/login')
             .then(res => {
                 expect(res.status).toBe(404)
             })
         })
-        it('should return JSON response', ()=>{
+        it('JSON response', ()=>{
             return request(server)
             .get('/api/auth/login')
             .then(res => {
